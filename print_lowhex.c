@@ -1,26 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_toupper.c                                       :+:      :+:    :+:   */
+/*   print_lowhex.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mle-brie <mle-brie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/05 12:06:42 by mle-brie          #+#    #+#             */
-/*   Updated: 2024/11/25 15:07:04 by mle-brie         ###   ########.fr       */
+/*   Created: 2024/11/22 14:02:23 by mle-brie          #+#    #+#             */
+/*   Updated: 2024/11/27 10:57:27 by mle-brie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-int	ft_toupper(int c)
+int	print_lowhex(va_list args)
 {
-	if (c >= 'a' && c <= 'z')
-		c = c - 32;
-	return (c);
+	unsigned int	num;
+	char			*result;
+	int				len;
+
+	num = va_arg(args, unsigned int);
+	result = hexformula(num);
+	len = 0;
+	if (result)
+	{
+		while (result[len])
+			len++;
+		write(1, result, len);
+	}
+	else
+		write(1, "(null)", 6);
+	free(result);
+	return (len);
 }
-/*int	main(void)
-{
-	char	test = '...';
-	printf("%c\n", ft_toupper(test));
-	return (0);
-}*/

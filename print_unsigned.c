@@ -1,40 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_string.c                                     :+:      :+:    :+:   */
+/*   print_unsigned.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mle-brie <mle-brie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/22 12:18:44 by mle-brie          #+#    #+#             */
-/*   Updated: 2024/11/27 10:42:41 by mle-brie         ###   ########.fr       */
+/*   Created: 2024/11/25 10:42:13 by mle-brie          #+#    #+#             */
+/*   Updated: 2024/11/27 09:52:11 by mle-brie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-int	print_string(va_list args)
+int	print_unsigned(va_list args)
 {
-	char	*str;
-	int		len;
+	unsigned int	u;
+	char			*result;
+	int				len;
 
-	str = va_arg(args, char *);
+	u = va_arg(args, unsigned int);
+	result = ft_utoa(u);
 	len = 0;
-	if (!str)
+	if (result)
 	{
-		ft_putstr_fd("(null)", 1);
-		return (6);
+		while (result[len])
+			len++;
+		write(1, result, len);
 	}
-	while (str[len])
-		len++;
-	ft_putstr_fd(str, 1);
+	else
+		return (write(1, "(null)", 6));
+	free(result);
 	return (len);
 }
 
 // int	main(void)
 // {
-// 	char	*test = "all is good in FunLand";
+// 	unsigned int		test = 789453455;
 
-// 	printf("%s\n", test);
-// 	printf("%d\n", print_string(test));
+// 	printf("unsigned is %u\n", test);
+// 	ft_printf("function to char %u\n", test);
 // 	return (0);
 // }

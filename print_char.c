@@ -1,34 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_lowhex.c                                     :+:      :+:    :+:   */
+/*   print_char.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mle-brie <mle-brie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/22 14:02:23 by mle-brie          #+#    #+#             */
-/*   Updated: 2024/11/27 10:57:27 by mle-brie         ###   ########.fr       */
+/*   Created: 2024/11/22 14:34:16 by mle-brie          #+#    #+#             */
+/*   Updated: 2024/11/25 14:23:01 by mle-brie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-int	print_lowhex(va_list args)
+int	print_char(va_list args)
 {
-	unsigned int	num;
-	char			*result;
-	int				len;
+	char	c;
 
-	num = va_arg(args, unsigned int);
-	result = hexformula(num);
-	len = 0;
-	if (result)
-	{
-		while (result[len])
-			len++;
-		write(1, result, len);
-	}
-	else
-		write(1, "(null)", 6);
-	free(result);
-	return (len);
+	c = (char)va_arg(args, int);
+	return (write(1, &c, 1));
 }
+
+// int main(void)
+// {
+// 	char	test = 'c';
+
+// 	printf("%c\n", test);
+// 	printf("%d\n", print_char(test));
+// 	return (0);
+// }

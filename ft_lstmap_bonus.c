@@ -16,11 +16,9 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
 	t_list	*new_list;
 	t_list	*new_node;
-	size_t	i;
 
 	if (!lst || !f || !del)
 		return (NULL);
-	i = ft_lstsize(lst);
 	new_list = NULL;
 	while (lst)
 	{

@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line_bonus.h"
+#include "libft.h"
 
 char	*read_and_store(int fd, char *stock, char *buffer)
 {
@@ -120,4 +120,20 @@ char	*get_next_line(int fd)
 // 	}
 // 	close (fd);
 // 	return (0);
+// }
+
+// int	main(int argc, char **argv)
+// {
+// 	int		fd;
+//     char **argv2 = argv;
+
+// 	while (argc-- - 1)
+// 	{
+// 		if ((fd = open(*(++argv), O_RDONLY)) == -1)
+// 			return (printf("Fucked up\n"));
+// 		printf("\n\nBegoth, the file number %i:\n\n", (int)(argv - argv2));
+//         for (char * line = get_next_line(fd); line != NULL; line = get_next_line(fd))
+//             printf("%s", line);
+// 	}
+// 	return (close (fd));
 // }

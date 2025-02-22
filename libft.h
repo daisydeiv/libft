@@ -18,6 +18,12 @@
 # include <unistd.h>
 # include <fcntl.h>
 # include <limits.h>
+# include <stdarg.h>
+# include <stdint.h>
+
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 10
+# endif
 
 int		ft_isalpha(int c);
 int		ft_isdigit(int c);
@@ -53,6 +59,7 @@ void	ft_putchar_fd(char c, int fd);
 void	ft_putstr_fd(char *s, int fd);
 void	ft_putendl_fd(char *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
+// libft bonus part
 typedef struct s_list
 {
 	void			*content;
@@ -67,5 +74,18 @@ void	ft_lstdelone(t_list *lst, void (*del)(void*));
 void	ft_lstclear(t_list **lst, void (*del)(void*));
 void	ft_lstiter(t_list *lst, void (*f)(void*));
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
+// GNL part
+char	*get_next_line(int fd);
+// ft_printf part
+int		ft_printf(const char *input, ...);
+int		print_char(va_list args);
+int		print_string(va_list args);
+int		print_num(va_list args);
+int		print_unsigned(va_list args);
+int		print_lowhex(va_list args);
+int		print_uphex(va_list args);
+int		print_pointer(va_list args);
+char	*ft_utoa(unsigned int nUm);
+char	*hexformula(unsigned long n);
 
 #endif

@@ -1,34 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_num.c                                        :+:      :+:    :+:   */
+/*   print_string.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mle-brie <mle-brie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/22 14:41:07 by mle-brie          #+#    #+#             */
-/*   Updated: 2024/11/27 09:51:08 by mle-brie         ###   ########.fr       */
+/*   Created: 2024/11/22 12:18:44 by mle-brie          #+#    #+#             */
+/*   Updated: 2024/11/27 10:42:41 by mle-brie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-int	print_num(va_list args)
+int	print_string(va_list args)
 {
-	int		num;
-	char	*result;
+	char	*str;
 	int		len;
 
-	num = va_arg(args, int);
-	result = ft_itoa(num);
+	str = va_arg(args, char *);
 	len = 0;
-	if (result)
+	if (!str)
 	{
-		while (result[len])
-			len++;
-		write(1, result, len);
+		ft_putstr_fd("(null)", 1);
+		return (6);
 	}
-	else
-		write (1, "(null)", 6);
-	free(result);
+	while (str[len])
+		len++;
+	ft_putstr_fd(str, 1);
 	return (len);
 }
+
+// int	main(void)
+// {
+// 	char	*test = "all is good in FunLand";
+
+// 	printf("%s\n", test);
+// 	printf("%d\n", print_string(test));
+// 	return (0);
+// }

@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utoa.c                                             :+:      :+:    :+:   */
+/*   ft_utoa.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mle-brie <mle-brie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,9 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-char	*utoa(unsigned int nUm)
+char	*ft_utoa(unsigned int nUm)
 {
 	char			*result;
 	int				len;
@@ -40,7 +40,7 @@ char	*utoa(unsigned int nUm)
 // int	main(void)
 // {
 // 	unsigned int	test = 1234567890;
-// 	char			*result = utoa(test);
+// 	char			*result = ft_utoa(test);
 // 	printf("unsigned is %u\n", test);
 // 	printf("function is %s\n", result);
 // 	return (0);

@@ -30,7 +30,7 @@ int		print_lowhex(va_list args);
 int		print_uphex(va_list args);
 int		print_pointer(va_list args);
 
-char	*utoa(unsigned int nUm);
+char	*ft_utoa(unsigned int nUm);
 char	*hexformula(unsigned long n);
 
 char	*ft_itoa(int n);
