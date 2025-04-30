@@ -26,17 +26,19 @@ OBJS := $(SRCS:%.c=$(OBJDIR)/%.o)
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	ar rcs $@ $^
+	@ar rcs $@ $^
+	@echo "🧰 Compiling libft...! 🧰"
 
 $(OBJDIR)/%.o: %.c
 	@mkdir -p $(OBJDIR)
-	$(CC) $(FLAGS) -c $< -o $@
+	@$(CC) $(FLAGS) -c $< -o $@
 
 clean:
-	rm -rf $(OBJDIR)
+	@rm -rf $(OBJDIR)
 
 fclean: clean
-	rm -rf $(NAME)
+	@rm -f $(NAME)
+	@echo "🧰 ...Bye-bye libft... 🧹"
 
 re: fclean all
 
